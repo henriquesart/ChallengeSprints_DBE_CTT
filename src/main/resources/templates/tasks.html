@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head th:include="_template :: head"></head>
+<body>
+	
+	<header th:include="_template :: header"></header>
+	
+	<div class="start">
+		<ul id="menu">
+			<li><img th:src="doar.svg" id="menuimg"><a href="/donation">Livros</a></li>
+			<li><img th:src="retirar.svg" id="menuimg"><a href="/task/new">Cadastrar Livros</a></li>
+			<li><img th:src="biblioteca.svg" id="menuimg"><a href="/task/library">Biblioteca</a></li>
+			<li><img th:src="user.svg" id="menuimg"><a href="/user/new">Cadastrar conta</a></li>
+
+		</ul>
+	</div>
+	
+	
+	<img th:src="banner.jpg" id="bannerimg">
+
+	<div class="listagem">
+		<h3>Doadores em destaque</h3>
+		<ul th:each="user : ${users}" >
+			<li >
+				<img th:src="${user.avatarUrl}" id="menuimg">
+				<p th:text="${user.name}"></p>
+			</li>
+		</ul>
+	
+	</div>
+	
+	<div class="listagem" id="listagemult">
+		<h3>Livros em destaque</h3>
+
+		<ul th:each="task : ${tasks}" >
+			<li >
+				<img th:src="book.png" id="menuimg">
+				<p th:text="${task.title}"></p>
+			</li>
+		</ul>
+	
+	</div>
+
+</body>
+<header th:include="_template :: footer"></header>
+</html>

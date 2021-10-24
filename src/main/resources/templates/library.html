@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>Bookify</title>
-<link th:href="style.css" rel="stylesheet" />
-</head>
+
+<head th:include="_template :: head"></head>
+
 <body>
 
-	<a href="/"><img th:src="bookify-logo.svg" id="indeximg"></a>
-	<hr>
+	<header th:include="_template :: header"></header>
+	
 	<div class="biblioteca">
 		<h2>Biblioteca</h2>
-		<p id="subtext">Na biblioteca, você pode conferir todos os livros disponíveis em bookify!</p>
-		<ul th:each="book : ${book}">
+		<p id="subtext">Na biblioteca, voce pode conferir todos os livros disponiveis em bookify!</p>
+		
+		<ul th:each="task : ${tasks}">
 			<li><img th:src="book.png" id="librimg">
 
-				<p th:text="${book.titulo}" id="comms"></p>
-				<p th:text="${book.autor}" id="comms"></p>
-				<p th:text="${book.genero}" id="comms"></p>
+				<p th:text="${task.title}" id="comms"></p>
+				<p th:text="${task.description}" id="comms"></p>
+				<p th:text="${task.points}" id="comms"></p>
 				<p id="comms2">Pontos:</p>
-				<p th:text="${book.valor}" id="comms"></p>
+				<p th:text="${task.status}" id="comms"></p>
 			</li>
 		</ul>
 
 	</div>
 
 </body>
-<footer>
-	<p>Caramel Turn Trash</p>
-</footer>
 </html>

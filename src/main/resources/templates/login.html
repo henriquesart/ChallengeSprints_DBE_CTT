@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+<body>
+	<br>
+	<br>
+
+	<div class="alert error" th:if="${param.error}">Login inválido</div>
+	
+	<section class="error, info">
+	
+		<h2>Login</h2>
+		
+		<form th:action="@{/login}" method="post">
+			<input name="username" type="email" placeholder="email">
+			<input name="password" type="password" placeholder="senha">
+			<button>Entrar</button>
+		</form>
+	
+	</section>
+
+</body>
+</html>

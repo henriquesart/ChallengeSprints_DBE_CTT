@@ -1,15 +1,44 @@
-CREATE TABLE account (id INT PRIMARY KEY auto_increment, nome varchar(200), regiao varchar(2), cpf varchar(14));
+CREATE TABLE task (
+	id INT PRIMARY KEY auto_increment, 
+	title varchar(200), 
+	description TEXT, 
+	points int,
+	status int DEFAULT 0,
+	user_id int
+);
 
-INSERT INTO account VALUES (1, 'Julio Silva', 'SP', '44813789147');
+CREATE TABLE user (
+	id bigint PRIMARY KEY auto_increment,
+	name varchar(200),
+	email varchar(200),
+	password varchar(200),
+	githubuser varchar(200)
+);
 
-INSERT INTO account VALUES (2, 'Maria Pereira', 'RJ', '44277427982');
+CREATE TABLE role (
+	id int primary key auto_increment,
+	name varchar(200)
+);
 
-INSERT INTO account VALUES (3, 'Juliana Prado', 'MG', '42265847236');
+CREATE TABLE user_roles(
+	user_id int,
+	roles_id int
+);
 
-CREATE TABLE book (id INT PRIMARY KEY auto_increment, titulo varchar(200), autor varchar(100), genero varchar(50), valor float(20));
+INSERT INTO role (name) VALUES ('ROLE_ADMIN'), ('ROLE_USER');
 
-INSERT INTO book VALUES (1, 'A Hora da Estrela', 'Clarice lispector', 'Romance', 59.99);
+INSERT INTO user_roles VALUES (1,1), (1,2), (2,2), (3,2);
 
-INSERT INTO book VALUES (2, 'Drácula', 'Bram Stoker', 'Terror', 49.99);
+INSERT INTO user (name, email, password, githubuser) VALUES
+('Joao Carlos', 'joao@gmail.com', '$2a$12$MR71xdTK7TLEufynjWM3yudy/afK7WSP.pEEaPZTK76zaRsCNQT02', 'joaocarloslima'),
+('Carla Lopes', 'carla@gmail.com', '$2a$12$MR71xdTK7TLEufynjWM3yudy/afK7WSP.pEEaPZTK76zaRsCNQT02', 'carla'),
+('Fabio Cabrini', 'fabio@fiap.com.br', '$2a$12$MR71xdTK7TLEufynjWM3yudy/afK7WSP.pEEaPZTK76zaRsCNQT02', 'jose');
 
-INSERT INTO book VALUES (3, 'O Homem de Giz', 'C.J. Tudor', 'Suspense', 49.99);
+INSERT INTO task (id, title, description, points, status, user_id) VALUES 
+(1, 'A Hora da Estrela', 'Clarice lispector', 10, 129, 1);
+
+INSERT INTO task (id, title, description, points, status) VALUES 
+(2, 'Drácula', 'Bram Stoker', 10, 99);
+
+INSERT INTO task (id, title, description, points, status, user_id) VALUES 
+(3, 'O Homem de Giz', 'C.J. Tudor', 10, 149, 2);

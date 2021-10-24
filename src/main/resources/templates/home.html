@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+
+<head th:include="_template :: head"></head>
+
+<body>
+	
+	<main class="home">
+        <div class="error">
+            <a href="/"><img th:src="bookify-logo.svg" id="indeximg"></a>
+            <br>
+            <br>
+            <p>Seja bem vindo ao Bookify! Sistema de doação e resgate de livros online!</p>
+
+            <div class="buttons">
+
+                <a href="/login" class="cttgroup">
+                    <span th:text="#{label.login}" style="font-size: 20px;"></span>
+                </a>
+
+                <a href="/user/new" class="cttgroup">
+                    <span th:text="#{label.register}" style="font-size: 20px;"></span>
+                </a>
+            </div>
+        </div>
+    </main>
+
+
+</body>
+</html>

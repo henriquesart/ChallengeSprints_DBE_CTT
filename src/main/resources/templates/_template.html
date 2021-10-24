@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://thymeleaf.org"
+	xmlns:sec="http://thymeleaf.org/thymeleaf-extras-springsecurity5"
+>
+
+<head th:fragment="head">
+	<meta charset="UTF-8">
+	<title>Bookify</title>
+	<link rel="stylesheet" type="text/css" th:href="@{~/css/style.css}">
+</head>
+
+<body>
+
+<header th:fragment="header">
+
+	<a href="/"><img th:src="bookify-logo.svg" id="indeximg"></a>
+	<div class="login-info">
+		<img class="avatar" alt="" th:src="${#authentication.getPrincipal().getAvatarUrl()}">
+		<a href="/logout" title="sair">
+			<span class="material-icons">Sair >></span>
+		</a>
+	</div>
+	<hr>
+</header>
+
+<footer th:fragment="footer">
+<footer><p>Caramel Turn Trash</p></footer>
+</footer>
+</html>

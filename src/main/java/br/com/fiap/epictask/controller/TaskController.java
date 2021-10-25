@@ -33,13 +33,31 @@ public class TaskController {
 	@Autowired
 	private MessageSource message;
 	
-	@GetMapping(value={"", "/home", "/library"})
+	@GetMapping
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView("tasks");
 		List<Task> tasks = repository.findAll();
 		modelAndView.addObject("tasks", tasks);
 		return modelAndView;
+
 	}
+	
+	@GetMapping("library")
+	public ModelAndView biblioteca() {
+		ModelAndView modelAndView = new ModelAndView("library");
+		List<Task> list2 = repository.findAll();
+		modelAndView.addObject("book", list2);
+		return modelAndView;
+	}
+	
+	@GetMapping("book")
+	public ModelAndView livro() {
+		ModelAndView modelAndView = new ModelAndView("book");
+		List<Task> list3 = repository.findAll();
+		modelAndView.addObject("book2", list3);
+		return modelAndView;
+	}
+
 	
 	@PostMapping
 	public String save(@Valid Task task, BindingResult result, RedirectAttributes redirect) {
@@ -61,6 +79,11 @@ public class TaskController {
 	@RequestMapping("library")
 	public String create2(Task task) {
 		return "library";
+	}
+	
+	@RequestMapping()
+	public String create3(Task task) {
+		return "book";
 	}
 	
 	
@@ -99,17 +122,4 @@ public class TaskController {
 		repository.save(task);
 		return "redirect:/task";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }

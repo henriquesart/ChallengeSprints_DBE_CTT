@@ -7,7 +7,7 @@
 	
 	<div class="start">
 		<ul id="menu">
-			<li><img th:src="doar.svg" id="menuimg"><a href="/donation">Livros</a></li>
+			<li><img th:src="doar.svg" id="menuimg"><a href="/task/book">Livros</a></li>
 			<li><img th:src="retirar.svg" id="menuimg"><a href="/task/new">Cadastrar Livros</a></li>
 			<li><img th:src="biblioteca.svg" id="menuimg"><a href="/task/library">Biblioteca</a></li>
 			<li><img th:src="user.svg" id="menuimg"><a href="/user/new">Cadastrar conta</a></li>
@@ -18,16 +18,6 @@
 	
 	<img th:src="banner.jpg" id="bannerimg">
 
-	<div class="listagem">
-		<h3>Doadores em destaque</h3>
-		<ul th:each="user : ${users}" >
-			<li >
-				<img th:src="${user.avatarUrl}" id="menuimg">
-				<p th:text="${user.name}"></p>
-			</li>
-		</ul>
-	
-	</div>
 	
 	<div class="listagem" id="listagemult">
 		<h3>Livros em destaque</h3>

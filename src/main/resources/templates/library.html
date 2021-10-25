@@ -11,7 +11,7 @@
 		<h2>Biblioteca</h2>
 		<p id="subtext">Na biblioteca, voce pode conferir todos os livros disponiveis em bookify!</p>
 		
-		<ul th:each="task : ${tasks}">
+		<ul th:each="task : ${book}">
 			<li><img th:src="book.png" id="librimg">
 
 				<p th:text="${task.title}" id="comms"></p>
@@ -25,4 +25,5 @@
 	</div>
 
 </body>
+<header th:include="_template :: footer"></header>
 </html>

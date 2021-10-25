@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<head th:include="_template :: head"></head>
+</head>
+<body>
+	
+	<header th:include="_template :: header"></header>
+	
+	<div class="info">
+
+		<h2>Livros</h2>
+		<p>Aqui você pode ver o livros cadastrados e seus respectivos IDs.</p>
+
+			<ul th:each="task : ${book2}" id="doar">
+				<li>
+					<p th:text="${task.id}" id="doar2"></p>
+					<p th:text="${task.title}"></p>
+					<hr>
+				</li>
+			</ul>
+
+		</div>
+</body>
+<header th:include="_template :: footer"></header>
+</html>

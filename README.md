@@ -75,11 +75,18 @@ O sistema Bookify, tem como finalidade o auxílio no cadastro e gestão de doaç
 
 - Lombok
 
-- BeanValidation
+- Bean Validation
 
 - Spring Boot Actuator
 
 - Banco de Dados H2
+
+- I18n
+
+- Spring Security
+
+- JWT
+
 ## Iniciar o projeto
 
 1- Clone o projeto.
